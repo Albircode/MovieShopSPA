@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/core/services/movie.service';
 import { Movie } from 'src/app/shared/models/Movie';
+import { MovieDetails } from 'src/app/shared/models/MovieDetails';
 
 @Component({
   selector: 'app-movie-details',
@@ -10,7 +11,7 @@ import { Movie } from 'src/app/shared/models/Movie';
 })
 export class MovieDetailsComponent implements OnInit {
   movieId: number;
-  movie: Movie;
+  movie: MovieDetails;
   constructor( private route: ActivatedRoute,
     private movieService: MovieService) { }
     

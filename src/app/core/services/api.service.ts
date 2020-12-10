@@ -11,9 +11,15 @@ export class ApiService {
 
   constructor(protected http:HttpClient) { }
 
-  getAll(path:string) : Observable<any[]>{
+  getAll(path:string, id?:number) : Observable<any[]>{
+    if(id){
+      return this.http.get(`${environment.apiUrl}${path}`+`/`+ id).pipe(
+        map(res => res as any[]));
+    }
+    else{
     return this.http.get(`${environment.apiUrl}${path}`).pipe(
       map(res => res as any[]));
+    }
     
   }
 
