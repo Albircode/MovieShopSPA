@@ -8,8 +8,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-
-  constructor(protected http:HttpClient) { }
+  private headers: HttpHeaders;
+  constructor(protected http:HttpClient) { 
+    this.headers = new HttpHeaders();
+    this.headers.append('Content-type','application/json');
+  }
 
   getAll(path:string, id?:number) : Observable<any[]>{
     if(id){
@@ -32,5 +35,9 @@ export class ApiService {
     }
     return this.http.get(geturl).pipe(
       map(res => res as any));
+  }
+  create(path: string, resource:any, option?:any) : Observable<any>{
+    return this.http.post(`${environment.apiUrl}${path}`,resource,{headers: this.headers})
+    .pipe(map((response)=>response))
   }
 }

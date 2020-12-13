@@ -51,7 +51,7 @@
 
 
 
-                        <a class="badge badge-pill badge-dark ml-1" asp-action="Genre" asp-route-id="{{genre.Id}}">
+                        <a class="badge badge-pill badge-dark ml-1" asp-action="Genre" >
 
                            {{ genre.Name}}
 
@@ -72,7 +72,7 @@
 
                         <span class="badge badge-warning">
 
-                            @Model.Rating
+                            {{movie.rating}}
 
                         </span>
 
@@ -88,7 +88,7 @@
 
                 <div class="col-12 text-light mt-2">
 
-                   {{movie.Overview}}
+                   {{movie.overview}}
 
                 </div>
 
@@ -142,7 +142,7 @@
 
                     <button type="button" class="btn btn-light btn-lg btn-block btn-sm" data-toggle="modal" data-target="#buyMovieModal">
 
-                        BUY {{movie.Price}}
+                        BUY {{movie.price}}
 
                     </button>
 
@@ -168,7 +168,7 @@
 <div class="row mt-4">
 
     <div class="col-4 moviefacts">
-
+        <h2>    {{movie.releaseDate}}</h2>
         <h5>MOVIE FACTS</h5>
 
         <hr>
@@ -179,7 +179,7 @@
 
                 <i class="far fa-calendar-alt mr-2"></i>Release Date
 
-                <span class="badge badge-pill badge-dark">{{movie.releaseDate.getDate()}}</span>
+                <span class="badge badge-pill badge-dark">{{movie.releaseDate}}</span>
 
             </li>
 
@@ -201,7 +201,7 @@
 
                     
 
-                    {{movie.revenue.toString()}}
+                    {{movie.revenue}}
 
                 </span>
 
@@ -214,11 +214,7 @@
                 <i class="fas fa-dollar-sign mr-2"></i> Budget
 
                 <span class="badge badge-pill badge-dark">
-
-                   
-
-                    {{movie.budget}}
-
+                    {{movie.budget.toString()}}
                 </span>
 
             </li>
